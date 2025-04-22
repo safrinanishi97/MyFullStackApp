@@ -1,0 +1,86 @@
+<div class="container">
+ <form>
+    <div class="model-body">
+         <fieldset>
+            <legend>Add New Product</legend>
+            <div class="row mt-3">
+                <div class="col-3">
+                    <label>Name</label><br>
+                  <input type="text" name="name" class="form-control" [(ngModel)]="productObj.name">
+                </div>
+                <div class="col-3">
+                    <label>Color</label><br>
+                  <input type="text" name="color" class="form-control" [(ngModel)]="productObj.color">
+                </div>
+                <div class="col-3">
+                    <label>Product Number</label><br>
+                  <input type="text" name="productNumber" class="form-control" [(ngModel)]="productObj.productNumber">
+                </div>
+                <div class="col-3">
+                    <label>Standard Cost</label><br>
+                  <input type="number" name="standardCost" class="form-control" [(ngModel)]="productObj.standardCost">
+                </div>
+                <div class="col-3">
+                    <label>List Price</label><br>
+                  <input type="number" name="listPrice" class="form-control" [(ngModel)]="productObj.listPrice">
+                </div>
+                <div class="col-3">
+                    <label>Weight</label><br>
+                  <input type="number" name="weight" class="form-control" [(ngModel)]="productObj.weight">
+                </div>
+                <div class="col-3">
+                    <label>Size</label><br>
+                  <input type="number" name="size" class="form-control" [(ngModel)]="productObj.size">
+                </div>
+                <div class="col-3 mt-3">
+                    <button (click)="addProduct()" type="button" class="btn btn-info">Add New Product</button>
+                  
+                </div>
+             </div>
+        </fieldset>
+        <div *ngIf="productList.length>0">
+         <fieldset> 
+              <legend>Products</legend>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                     
+                      <th>Name</th>
+                      <th>Product Number</th>
+                      <th>Color</th>
+                      <th>Standard Cost</th>
+                      <th>List Price</th>
+                      <th>Size</th>
+                      <th>Weight</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody *ngFor="let p of productList">
+                <tr>
+            
+                  <th>{{p.name}}</th>
+                  <th>{{p.productNumber}}</th>
+                  <th>{{p.color}}</th>
+                  <th>{{p.standardCost}}</th>
+                  <th>{{p.listPrice}}</th>
+                  <th>{{p.size}}</th>
+                  <th>{{p.weight}}</th>
+                  <th><button (click)="deleteProduct(p,productList)" class="btn btn-danger btn-sm">Delete</button></th>
+              </tr>
+              </tbody>
+              </table>
+         </fieldset>
+        </div>
+        <div class="row mt-3 mb-3">
+            <div class="col-6">
+                <input type="text" [(ngModel)]="productCateObj.name" name="name" class="form-control" placeholder="Enter Category Name">
+            </div>
+            <div class="col-6">
+                <button (click)="addCategory()" type="submit" class="btn btn-primary">Save Product</button>
+            </div>
+
+        </div>
+    </div>
+ </form>
+</div>
+

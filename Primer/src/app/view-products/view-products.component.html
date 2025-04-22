@@ -1,0 +1,112 @@
+<!-- <div class="container">
+   <div class="row"> 
+       <div class="col-md-12">
+           <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th><h3>Product Category With Products</h3></th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (item of list; track $index) {
+                        <tr>
+                            <td>
+                                <strong>Category Name : {{item.name}}</strong>
+                                <div *ngIf="item.products.length>0">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product Id</th>
+                                                    <th>Product Name</th>
+                                                    <th>Product Number</th>
+                                                    <th>Color</th>
+                                                    <th>Standard Cost</th>
+                                                    <th>List Price</th>
+                                                    <th>Size</th>
+                                                    <th>Weight</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (p of item.products; track $index) {
+                                                    <tr>
+                                                        <td>{{p.productID}}</td>
+                                                        <td>{{p.name}}</td>
+                                                        <td>{{p.productNumber}}</td>
+                                                        <td>{{p.color}}</td>
+                                                        <td>{{p.standardCost}}</td>
+                                                        <td>{{p.listPrice}}</td>
+                                                        <td>{{p.size}}</td>
+                                                        <td>{{p.weight}}</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+           </table>
+       </div>
+   </div>
+</div> -->
+<!-- ngIf er If boro hater hobe -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th><h3>Product Category With Products</h3></th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(item of list;track $index){
+                        <tr>
+                            <td>
+                                <strong>Category Name : {{item.name}}</strong>
+                                <div *ngIf="item.products.length>0">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Product Id</th>
+                                                <th>Name</th>
+                                                <th>Product Number</th>
+                                                <th>Color</th>
+                                                <th>Standard Cost</th>
+                                                <th>List Price</th>
+                                                <th>Size</th>
+                                                <th>Weight</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @for(p of item.products; track $index){
+                                                <tr>
+                                                    <th>{{p.productID}}</th>
+                                                    <th>{{p.name}}</th>
+                                                    <th>{{p.productNumber}}</th>
+                                                    <th>{{p.color}}</th>
+                                                    <th>{{p.standardCost}}</th>
+                                                    <th>{{p.listPrice}}</th>
+                                                    <th>{{p.size}}</th>
+                                                    <th>{{p.weight}}</th>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                            <td>
+                                <a [routerLink]="['/addProduct','edit',item.productCategoryID]" class="btn btn-primary">Edit</a>
+                                <button (click)="onDelete(item)" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
